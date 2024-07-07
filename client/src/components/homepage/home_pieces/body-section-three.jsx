@@ -20,7 +20,7 @@ const BodySectionThree = () => {
           <p className="sectionContent">
             Click the link below to <em className="sectionThreeTextChange">draft up a request</em> or attempt to <em className="sectionThreeTextChange">take on your own</em>!
           </p>
-          <input type="button" onClick={() => navigate("/bounties")} value="Click me!" />
+          <input className="homeButton" type="button" onClick={() => navigate("/bounties")} value="Click me!" />
         </div>
         <img className="homeImage" src={img} alt="" />
       </section>

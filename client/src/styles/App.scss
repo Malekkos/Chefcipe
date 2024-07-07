@@ -84,8 +84,9 @@ $cyan: #3CF3D2;
   @include flexRulesRow();
   justify-content: space-around;
   background-color: $black;
-  width: 55rem;
+  width: 57rem;
   margin-top: 5.7rem;
+  margin-bottom: 0.5rem;
   border-radius: 0.7rem;
 
   #mainWrapper, #sectionTwoWrapper, #sectionThreeWrapper {
@@ -123,8 +124,30 @@ $cyan: #3CF3D2;
     color: $cyan;
   }
 
+  .homeButton {
+    display: flex;
+    align-self: center;
+    width: 20rem;
+    height: 1.7rem;
+    background-color: $red;
+    border: none;
+    cursor: pointer;
+    transition: border-radius 0.7s ease-in-out, width 0.5s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  .homeButton:hover {
+      background-color: $cyan;
+      width: 15rem;
+      border: 1px solid $red;
+      border-style: groove;
+      border-radius: 1rem;
+  }
 }
 
 #sectionTwo {
   flex-direction:row-reverse;
+}
+
+#sectionThreeWrapper {
+  padding-bottom: 1rem;
 }
