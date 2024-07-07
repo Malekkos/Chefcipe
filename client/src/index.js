@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/bounty",
+        path: "/bounties",
         element: null,
       },
       {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         element: null,
       },
       {
-        path: "/user",
+        path: "/profile",
         element: null,
       },
       {
