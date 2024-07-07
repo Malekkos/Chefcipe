@@ -17,6 +17,7 @@ const Nav = () => {
             <h5 id="navSubtext">..for chefs, by chefs</h5>
           </div>
           <div id="navLinks">
+            <Link className="navLink" to="/">Home</Link>
             <Link className="navLink" to="/recipes">Recipes</Link>
             <Link className="navLink" to="/bounties">Bounties</Link>
             <Link className="navLink" to="/profile">Profile</Link>

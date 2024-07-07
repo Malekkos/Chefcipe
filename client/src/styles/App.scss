@@ -17,6 +17,7 @@ $white: #ffffff;
 
 .App {
   text-align: center;
+  height: 200rem;
 }
 
 
@@ -31,14 +32,14 @@ $white: #ffffff;
     width: 90%;
 
       h2 {
-        height: 1rem;
         cursor: pointer;
         font-size: 2rem;
         user-select: none;
       }
 
       h5 {
-        height: 1rem;
+        position: relative;
+        bottom: 3.5rem;
         font-size:large;
         font-family: cursive;
         font-style: italic;
