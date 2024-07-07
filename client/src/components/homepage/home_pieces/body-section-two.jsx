@@ -20,7 +20,7 @@ const BodySectionTwo = () => {
           </p>
           <input type="button" value="Click me!"/>
         </div>
-        <img className="homeImage" src={img} alt="" />
+        <img className="homeImage" src={img} alt="chef working in a kitchen" />
       </section>
     </>
   )
