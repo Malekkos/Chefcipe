@@ -4,13 +4,13 @@
 
 
 
-const BodySectionOne = () => {
+const BodySectionTwo = () => {
 
 
   return (
     <>
       <section>
-        One
+        Two
       </section>
     </>
   )
@@ -18,4 +18,4 @@ const BodySectionOne = () => {
 
 
 
-export default BodySectionOne
+export default BodySectionTwo
