@@ -3,7 +3,8 @@
 $red: #F24B4B;
 $white: #ffffff;
 $black: #444444;
-
+$yellow: #F8E962;
+$cyan: #3CF3D2;
 
 @mixin flexRulesColumn{
   display: flex;
@@ -79,7 +80,7 @@ $black: #444444;
 }
 
 
-#mainOne, #sectionOne, #sectionTwo {
+#mainOne, #sectionTwo, #sectionThree {
   @include flexRulesRow();
   justify-content: space-around;
   background-color: $black;
@@ -87,7 +88,7 @@ $black: #444444;
   margin-top: 5.7rem;
   border-radius: 0.7rem;
 
-  #mainWrapper, #sectionOneWrapper, #sectionTwoWrapper {
+  #mainWrapper, #sectionTwoWrapper, #sectionThreeWrapper {
     @include flexRulesColumn();
   }
 
@@ -103,7 +104,7 @@ $black: #444444;
     user-select: none;
   }
 
-  .mainContent {
+  .mainContent, .sectionContent {
     color: $white;
     width: 21rem;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -113,5 +114,17 @@ $black: #444444;
   .mainTextChange {
     color: $red;
   }
+
+  .sectionTwoTextChange {
+    color: $yellow;
+  }
+
+  .sectionThreeTextChange {
+    color: $cyan;
+  }
+
 }
 
+#sectionTwo {
+  flex-direction:row-reverse;
+}
