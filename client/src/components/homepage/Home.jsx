@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/App.scss"
+import "../../styles/App.scss"
 
 const Home = () => {
 
@@ -8,6 +8,7 @@ const Home = () => {
 
   return (
     <div className="App">
+      sadfasdf
     </div>
   )
 }
