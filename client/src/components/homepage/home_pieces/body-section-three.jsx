@@ -1,12 +1,11 @@
 
-
-
-
+import { useNavigate } from "react-router-dom"
 
 
 const BodySectionThree = () => {
 
   const img = require("../../../media/chefSectionThree.jpg")
+  const navigate = useNavigate()
 
   return (
     <>
@@ -21,7 +20,7 @@ const BodySectionThree = () => {
           <p className="sectionContent">
             Click the link below to <em className="sectionThreeTextChange">draft up a request</em> or attempt to <em className="sectionThreeTextChange">take on your own</em>!
           </p>
-          <input type="button" value="Click me!" />
+          <input type="button" onClick={() => navigate("/bounties")} value="Click me!" />
         </div>
         <img className="homeImage" src={img} alt="" />
       </section>

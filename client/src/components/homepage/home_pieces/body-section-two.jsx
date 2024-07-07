@@ -1,4 +1,4 @@
-
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -7,6 +7,7 @@
 const BodySectionTwo = () => {
 
   const img = require("../../../media/chefSectionTwo.jpg")
+  const navigate = useNavigate()
 
   return (
     <>
@@ -18,7 +19,7 @@ const BodySectionTwo = () => {
           <p className="sectionContent">
             Sort by food type, region, even specific chef to find what you desire. Click the link Below to get started on finding the recipe <em className="sectionTwoTextChange">just right for you</em>!
           </p>
-          <input type="button" value="Click me!"/>
+          <input type="button" onClick={() => navigate("recipes")} value="Click me!"/>
         </div>
         <img className="homeImage" src={img} alt="chef working in a kitchen" />
       </section>
