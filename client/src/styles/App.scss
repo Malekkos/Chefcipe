@@ -1,3 +1,65 @@
+
+
+$red: #F24B4B;
+$white: #ffffff;
+
+@mixin flexRulesColumn{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+@mixin flexRulesRow{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
 .App {
   text-align: center;
 }
+
+
+#navWrapper {
+  @include flexRulesRow();
+  background-color: #444444;
+  top: 0;
+
+  #logoWrapper {
+    @include flexRulesColumn();
+    align-items: center;
+    width: 90%;
+
+      h2 {
+        height: 1rem;
+        cursor: pointer;
+      }
+      
+      h5 {
+        height: 1rem;
+      }
+  }
+  
+  div #navSubtext {
+    color: $white;
+  }
+
+  #navLinks {
+    @include flexRulesColumn();
+    width: 10%;
+  }
+
+  #navLinks .navLink {
+    color: $red;
+    text-decoration: none;
+  }
+
+  div .logoFirst {
+    color: $white;
+  }
+
+  div .logoSecond {
+    color: $red;
+  }
+}
+

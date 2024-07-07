@@ -12,14 +12,14 @@ const Nav = () => {
     <>
       <nav>
         <div id="navWrapper">
-          <div>
-            <h2 onClick={() => navigate("/")}><span id="logoFirst"></span>chef<span id="logoSecond">cipe</span></h2>
+          <div id="logoWrapper">
+            <h2 onClick={() => navigate("/")}><span className="logoFirst">chef</span><span className="logoSecond">cipe</span></h2>
             <h5 id="navSubtext">..for chefs, by chefs</h5>
           </div>
           <div id="navLinks">
-            <Link to="/recipes">Recipes</Link>
-            <Link to="/bounties">Bounties</Link>
-            <Link to="/profile">Profile</Link>
+            <Link className="navLink" to="/recipes">Recipes</Link>
+            <Link className="navLink" to="/bounties">Bounties</Link>
+            <Link className="navLink" to="/profile">Profile</Link>
           </div>
         </div>
       </nav>
