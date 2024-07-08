@@ -7,10 +7,10 @@ import "../../styles/Recipe.scss"
 const RecipeCreationPage = () => {
 
   const [recipe, setRecipe] = useState()
-  const [ingredients, setIngredients] = useState([
-    { name: "", desc: "", quant: "", quantNum: "" }
-  ])
   const [steps, setSteps] = useState()
+  const [ingredients, setIngredients] = useState([
+    { name: "", desc: "", quant: "", quantNum: "" },
+  ])
 
   return (
     <main id="recipeCreationMainWrapper">
@@ -26,8 +26,8 @@ const RecipeCreationPage = () => {
         <div className="divider"></div>
         <div id="dishItemsWrapper">
           <div id="dishItemsSubWrapper">
-            <p>Give your dish items!</p>
-            <input type="button" />
+            <p id="dishItemsTitle"><em>Give your dish some items</em></p>
+            <input id="dishItemsCreateButton" type="button" value="Create" />
           </div>
           {
             ingredients.map((val, key) => {
@@ -35,12 +35,13 @@ const RecipeCreationPage = () => {
               console.log("this is the key: ", key)
               return (
                 <div className="itemsWrapper">
-                  <input type="text" value={val.name} placeholder="Item name..." />
-                  <input type="text" value={val.desc} placeholder="Item desc...(optional)" />
+                  <input className="itemGeneralLeft itemGeneral" type="text" value={val.name} placeholder="Item name..." />
+                  <input className="itemGeneral" type="text" value={val.desc} placeholder="Item desc...(optional)" />
                   <div className="itemQuantityWrapper">
-                    <input type="text" value={val.quant} placeholder="Item quant..." />
-                    <input type="number" value={val.quantNum} placeholder="Amount..." />
+                    <input className="itemGeneral" type="text" value={val.quant} placeholder="Item quant..." />
+                    <input className="itemGeneralRight itemGeneral" type="number" value={val.quantNum} placeholder="Amount..." />
                   </div>
+                  <input className="dishItemDeleteButton" type="button" value="X" />
                 </div>
               )
             })
