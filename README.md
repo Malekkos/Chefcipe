@@ -5,7 +5,8 @@ Demo project about a site for chefs by chefs. Easiest way to think of this is 'l
 ## Goals
 Develop front end
  ~ Prospecting 4 pages, could be more
-
+  7/7/24:
+  Implemented navbar. TODO for that is making a button that expands to show the nav links.
  Develop back end
  ~ ...learn Django
 
