@@ -23,5 +23,5 @@ from app.views import RecipesView, UserView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("recipes/", RecipesView.as_view(), name="Recipes"),
-    path("profile", UserView.as_view(), name="User")
+    path("profile/", UserView.as_view(), name="User")
 ]
