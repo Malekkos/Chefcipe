@@ -1,6 +1,8 @@
 $red: #F24B4B;
 $white: #ffffff;
+$lightwhite: #cccccc;
 $black: #444444;
+$lighterblack: #363636;
 $yellow: #F8E962;
 $cyan: #3CF3D2;
 
@@ -66,7 +68,7 @@ $cyan: #3CF3D2;
 
 .divider {
   height: 2rem;
-  background-color: grey;
+  background-color: $lightwhite;
   margin: 2rem 0;
   width: 55rem;
 }
@@ -74,6 +76,43 @@ $cyan: #3CF3D2;
 #dishNameWrapper, #dishItemsWrapper {
   background-color: $black;
   width: 45rem;
+}
+
+#dishNameWrapper {
+  @include flexRulesRow();
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10rem;
+  border-radius: 1.4rem;
+
+  #dishNameTitle {
+    font-size: 1.6rem;
+    position:relative;
+    bottom: 2rem;
+    color: $white;
+    border-bottom: $lightwhite solid 3px;
+  }
+
+  #dishName {
+    height: 2rem;
+    width: 20rem;
+    position: relative;
+    bottom: 1rem;
+    background-color: $lighterblack;
+    border-top: none;
+    border-right: none;
+    border-width: 2px;
+    border-color: $black;
+  }
+
+  #dishNameButton {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.5rem;
+    color: $red;
+    background-color: $white;
+    border: none;
+  }
 }
 
 #dishItemsWrapper {

@@ -17,8 +17,11 @@ const RecipeCreationPage = () => {
       <h1>Create your recipe!</h1>
       <form id="recipeCreationForm">
         <div id="dishNameWrapper">
-          <input type="text" value="" placeholder="Dish name..." />
-          <input type="button" value="Clear" />
+          <div>
+            <p id="dishNameTitle"><em>Name your Dish!</em></p>
+            <input id="dishName" type="text" value="" placeholder="Dish name..." />
+          </div>
+          <input id="dishNameButton" type="button" value="Clear" />
         </div>
         <div className="divider"></div>
         <div id="dishItemsWrapper">
