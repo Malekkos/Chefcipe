@@ -8,13 +8,25 @@ from . models import *
 from . serializer import *
 
 # Create your views here.
+    
+class UserView(APIView):
+  def get(self, request):
+    output = [{
+      "username": output.username,
+      "first_name": output.first_name,
+      "last_name": output.last_name,
+      "gender": output.gender,
+      "date_signed_up": output.date_signed_up
+      } for output in User.objects.all()]
+    return Response(output)
 
 class RecipesView(APIView):
   def get(self, request):
     output = [{
       "dish_name": output.dish_name,
       "ingredients": output.ingredients,
-      # "date_posted": output.date_posted
+      # "author": output.author,
+      "date_posted": output.date_posted
       } for output in Recipes.objects.all()]
     return Response(output)
   

@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 # from django.conf.urls import 
 
-from app.views import RecipesView
+from app.views import RecipesView, UserView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", RecipesView.as_view(), name="anything")
+    path("", RecipesView.as_view(), name="Recipes"),
+    path("profile/", UserView.as_view(), name="User")
 ]
