@@ -5,6 +5,7 @@ import './index.css';
 import Home from './components/homepage/Home';
 import Main from './components/Main';
 import RecipePage from './components/recipepage/Recipe';
+import RecipeCreationPage from './components/recipecreationpage/RecipeCreation';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/recipes",
         element: <RecipePage />,
+      },
+      {
+        path: "/recipes/creation",
+        element: <RecipeCreationPage />
       },
       {
         path: "/profile",

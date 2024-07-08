@@ -1,9 +1,11 @@
 import React, { useState } from "react"
-
+import { useNavigate } from "react-router-dom"
 
 
 
 const RecipePageTop = () => {
+
+  const navigate = useNavigate()
   const initialSortButton = [
     { name: "recent", active: false},
     { name: "nationality", active: false},
@@ -41,7 +43,7 @@ const RecipePageTop = () => {
             )
           })}
         </div>
-        <input id="recipePageCreateButton" type="button" value="Create Recipe" />
+        <input onClick={() => navigate("/recipes/creation")} id="recipePageCreateButton" type="button" value="Create Recipe" />
       </div>
     </>
   )
