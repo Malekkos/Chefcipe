@@ -4,6 +4,7 @@ import './index.css';
 
 import Home from './components/homepage/Home';
 import Main from './components/Main';
+import RecipePage from './components/recipepage/Recipe';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipes",
-        element: null,
+        element: <RecipePage />,
       },
       {
         path: "/profile",
