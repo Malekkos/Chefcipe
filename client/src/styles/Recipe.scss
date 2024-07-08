@@ -52,5 +52,49 @@ $cyan: #3CF3D2;
     background-color: cornflowerblue;
     border-width: 0.4rem;
   }
+}
 
+#recipeCreationMainWrapper {
+  @include flexRulesColumn();
+  align-items: center;
+
+  #recipeCreationForm {
+    @include flexRulesColumn();
+    align-items: center;
+  }
+}
+
+.divider {
+  height: 2rem;
+  background-color: grey;
+  margin: 2rem 0;
+  width: 55rem;
+}
+
+#dishNameWrapper, #dishItemsWrapper {
+  background-color: $black;
+  width: 45rem;
+}
+
+#dishItemsWrapper {
+  @include flexRulesColumn();
+  height: fit-content;
+  padding-bottom: 20rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+  #dishItemsSubWrapper {
+    @include flexRulesRow();
+    justify-content: space-between;
+  }
+
+  .itemsWrapper{ 
+    @include flexRulesRow();
+    margin-top: 2rem;
+  }
+
+}
+
+.itemQuantityWrapper {
+  @include flexRulesRow();
 }
