@@ -41,7 +41,7 @@ const RecipePageTop = () => {
             )
           })}
         </div>
-        <input type="button" value="Create Recipe" />
+        <input id="recipePageCreateButton" type="button" value="Create Recipe" />
       </div>
     </>
   )
