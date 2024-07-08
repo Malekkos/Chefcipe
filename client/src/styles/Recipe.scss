@@ -1,0 +1,23 @@
+$red: #F24B4B;
+$white: #ffffff;
+$black: #444444;
+$yellow: #F8E962;
+$cyan: #3CF3D2;
+
+@mixin flexRulesColumn{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+@mixin flexRulesRow{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+#recipePageTopWrapper {
+  @include flexRulesRow();
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}

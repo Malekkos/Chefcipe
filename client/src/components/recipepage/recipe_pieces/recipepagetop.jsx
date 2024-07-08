@@ -8,8 +8,11 @@ const RecipePageTop = () => {
 
   return(
     <>
-      <div>
-        <input type="button" />
+      <div id="recipePageTopWrapper">
+        <div>
+          <p>Sort by:</p>
+        </div>
+        <input type="button" value="Create Recipe" />
       </div>
     </>
   )
