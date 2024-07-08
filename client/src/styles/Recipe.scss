@@ -20,4 +20,18 @@ $cyan: #3CF3D2;
   @include flexRulesRow();
   justify-content: space-between;
   padding: 1rem 2rem;
+
+  #recipePageSorterWrapper {
+    @include flexRulesRow();
+
+    .recipePageSorterButton {
+      border: none;
+      background-color: white;
+    }
+
+    .active {
+      color: $red;
+    }
+  }
+
 }

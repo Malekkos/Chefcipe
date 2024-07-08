@@ -1,5 +1,3 @@
-
-
 $red: #F24B4B;
 $white: #ffffff;
 $black: #444444;
@@ -150,9 +148,4 @@ $cyan: #3CF3D2;
 
 #sectionThreeWrapper {
   padding-bottom: 1rem;
-}
-
-#recipePageTwoWrapper {
-  @include flexRulesRow();
-  background-color: $black;
 }
