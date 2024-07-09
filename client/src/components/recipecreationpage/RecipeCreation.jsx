@@ -7,9 +7,11 @@ import "../../styles/Recipe.scss"
 const RecipeCreationPage = () => {
 
   const [recipe, setRecipe] = useState()
-  const [steps, setSteps] = useState()
+  const [steps, setSteps] = useState([
+    { name: "", desc: "",},
+  ])
   const [ingredients, setIngredients] = useState([
-    { name: "", desc: "", quant: "", quantNum: "" },
+    { name: "", desc: "", type: "", typeNum: "" },
   ])
 
   return (
@@ -35,14 +37,38 @@ const RecipeCreationPage = () => {
               console.log("this is the key: ", key)
               return (
                 <div className="itemsWrapper">
-                  <input className="itemGeneralLeft itemGeneral" type="text" value={val.name} placeholder="Item name..." />
+                  <input className="left itemGeneral" type="text" value={val.name} placeholder="Item name..." />
                   <input className="itemGeneral" type="text" value={val.desc} placeholder="Item desc...(optional)" />
                   <div className="itemQuantityWrapper">
-                    <input className="itemGeneral" type="text" value={val.quant} placeholder="Item quant..." />
-                    <input className="itemGeneralRight itemGeneral" type="number" value={val.quantNum} placeholder="Amount..." />
+                    <input className="itemGeneral" type="text" value={val.type} placeholder="Item type, eg. cups, oz" />
+                    <input className="right itemGeneral" type="number" value={val.typeNum} placeholder="Amount..." />
                   </div>
                   <input className="dishItemDeleteButton" type="button" value="X" />
                 </div>
+              )
+            })
+          }
+        </div>
+        <div className="divider"></div>
+        <div id="dishStepsWrapper">
+          <div id="dishStepsSubWrapper">
+            <p id="dishStepsTitle"><em>Give your dish some steps</em></p>
+            <input id="dishStepsCreateButton" type="button" value="Create"/>
+          </div>
+          {
+            steps.map((val, key) => {
+              console.log("this is the val: ", val)
+              console.log("this is the key: ", key)
+
+              return(
+                <>
+                <div className="stepsWrapper">
+                  <p className="stepsNum">{key + 1}</p>
+                  <input className="stepName left" type="text" value={val.name} placeholder="Step name..."/>
+                  <textarea className="stepDesc right" type="tex" value={val.desc} placeholder="Step description..."/>
+                  <input className="dishStepsDeleteButton" type="button" value="X" />
+                </div>
+                </>
               )
             })
           }

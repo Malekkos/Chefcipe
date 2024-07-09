@@ -164,11 +164,11 @@ $cyan: #3CF3D2;
   height: 2rem;
 }
 
-.itemGeneralRight {
+.right {
   border-right: none;
 }
 
-.itemGeneralLeft {
+.left {
   border-left: none;
 }
 
@@ -189,3 +189,74 @@ $cyan: #3CF3D2;
 .dishItemDeleteButton:hover {
   background-color: $lightwhite;
 }
+
+#dishStepsWrapper {
+  @include flexRulesColumn();
+  background-color: $black;
+  height: fit-content;
+  padding-bottom: 10rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border-radius: 1.5rem;
+
+  #dishStepsSubWrapper {
+    @include flexRulesRow();
+    justify-content: space-between;
+
+    #dishStepsTitle {
+      @include titleSet();
+    }
+
+    #dishStepsCreateButton {
+      width: 5rem;
+      height: 5rem;
+      border: none;
+      font-size: 1.4rem;
+      color: $cyan;
+      margin: 1rem 0;
+    }
+  }
+}
+
+.stepsWrapper{
+  @include flexRulesRow();
+  align-items: center;
+
+  .stepsNum {
+    margin-right: 0.2rem;
+    color: $white;
+  }
+  .stepName, .stepDesc {
+    flex-wrap: wrap;
+    border-top: none;
+    background-color: $lightblack;
+    border-color: $white;
+    margin-right: 0.4rem;
+    width: 20rem;
+    resize: none;
+  }
+  
+  .stepName {
+    height: 2rem;
+  }
+  
+  .stepDesc {
+    min-height: 7rem;
+  }
+  
+  .dishStepsDeleteButton {
+    width: 2rem;
+    height: 2rem;
+    background-color: $black;
+    border: none;
+    color: $red;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .dishStepsDeleteButton:hover {
+    background-color: $lightwhite;
+  }
+  
+}
+
