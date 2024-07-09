@@ -41,7 +41,7 @@ const RecipeCreationPage = () => {
                     <input className="itemGeneral" type="text" value={val.type} placeholder="Item type, eg. cups, oz" />
                     <input className="right itemGeneral" type="number" value={val.typeNum} placeholder="Amount..." />
                   </div>
-                  <input className="dishItemDeleteButton" type="button" value="X" />
+                  { key + 1 === 1 ? "" : <input className="dishItemDeleteButton" type="button" value="X" /> }
                 </div>
               )
             })

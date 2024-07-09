@@ -167,6 +167,8 @@ $darkcyan: #24d0b1;
 
   .itemsWrapper{ 
     @include flexRulesRow();
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 2rem;
   }
 
