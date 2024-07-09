@@ -8,7 +8,6 @@ import "../../styles/Recipe.scss"
 
 const RecipeCreationPage = () => {
 
-  const [recipe, setRecipe] = useState()
   const [name, setName] = useState("")
   const [ingredients, setIngredients] = useState([
     { name: "", desc: "", type: "", typeNum: "" },
@@ -87,17 +86,25 @@ const RecipeCreationPage = () => {
 
     let ingredientsString = ""
     ingredients.forEach(val => {
-      console.log("this ran")
       ingredientsString = ingredientsString.concat("Ingredient Name: " + val.name + ". ")
       ingredientsString = ingredientsString.concat("Ingredient Description: " + val.desc + ". ")
       ingredientsString = ingredientsString.concat("Ingredient Quantity Type: " + val.type + ". ")
       ingredientsString = ingredientsString.concat("Ingredient Quantity Amount: " + val.typeNum + ". ")
     })
 
+    let stepString = ""
+    let count = 1
+    steps.forEach(val => {
+      console.log(val.desc)
+      stepString = stepString.concat(`Step ${count} : ` + val.name + ". ")
+      stepString = stepString.concat("Step Description: " + val.desc + ". ")
+      count++
+    })
 
     axios.post("http://127.0.0.1:8000/recipes/", {
       dish_name: name,
       ingredients: ingredientsString,
+      steps: stepString,
     })
       .then(res => {
         console.log(res)
