@@ -41,29 +41,30 @@ const RecipeCreationPage = () => {
     }
 
   }
-    const handleDelete = (event) => {
-      switch(event.target.name) {
-        case"items":
+  const handleDelete = (event) => {
+    switch (event.target.name) {
+      case "items":
         const containerDeleteIngredients = [...ingredients]
         const parentElementIngredients = event.target.parentElement.attributes[0].nodeValue
         containerDeleteIngredients.splice(parentElementIngredients, 1)
         setIngredients(containerDeleteIngredients)
         break;
-        case "steps":
-          const containerDeleteSteps = [...steps]
-          const parentElementSteps = event.target.parentElement.attributes[0].nodeValue
-          containerDeleteSteps.splice(parentElementSteps, 1)
-          setSteps(containerDeleteSteps)
-          break;
+      case "steps":
+        const containerDeleteSteps = [...steps]
+        const parentElementSteps = event.target.parentElement.attributes[0].nodeValue
+        containerDeleteSteps.splice(parentElementSteps, 1)
+        setSteps(containerDeleteSteps)
+        break;
       default:
         console.log("how did this happen?")
         return
-      }
     }
+  }
 
-    const clearName = () => {
-      setName("")
-    }
+  const clearName = () => {
+    setName("")
+  }
+
   return (
     <main id="recipeCreationMainWrapper">
       <h1>Create your recipe!</h1>
@@ -73,7 +74,7 @@ const RecipeCreationPage = () => {
             <p id="dishNameTitle"><em>Name your Dish!</em></p>
             <input id="dishName" name="name" type="text" value={name} onChange={(event) => handleChange(event)} placeholder="Dish name..." />
           </div>
-          <input id="dishNameButton" onClick={() => clearName()}type="button" value="Clear" />
+          <input id="dishNameButton" onClick={() => clearName()} type="button" value="Clear" />
         </div>
         <div className="divider"></div>
         <div id="dishItemsWrapper">
