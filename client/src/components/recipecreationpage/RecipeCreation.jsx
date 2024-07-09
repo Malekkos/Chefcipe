@@ -9,25 +9,15 @@ const RecipeCreationPage = () => {
   const [recipe, setRecipe] = useState()
   const [name, setName] = useState("")
   const [ingredients, setIngredients] = useState([
-    // tables: [
-      { name: "", desc:"", type:"", typeNum:""},
-      { name: "", desc:"", type:"", typeNum:""},
-      { name: "", desc:"", type:"", typeNum:""},
-    // ]
-])
+    { name: "", desc: "", type: "", typeNum: "" },
+    { name: "", desc: "", type: "", typeNum: "" },
+    { name: "", desc: "", type: "", typeNum: "" },
+  ])
   const [steps, setSteps] = useState([
     { name: "", desc: "", },
   ])
 
-  console.log(ingredients)
-
   const handleChange = (event) => {
-    // const target = event.target.parentElement
-    // console.log(target)
-    // console.dir(event.target)
-    // const target = event.target.parentElement
-
-    // console.dir(target.attributes[0].nodeValue)
     switch (event.target.name) {
       case "name":
         setName(event.target.value);
@@ -35,15 +25,7 @@ const RecipeCreationPage = () => {
       case "items":
         const container = [...ingredients]
         const target = event.target.parentElement
-        console.log("this is the target: ",target)
-        console.log("this is targets nodevalue: ", target.attributes[0].nodeValue)
-        // console.log(container[ingredients[target.attributes[0].nodeValue]])
-        // container = event.target.value
-        // console.log("curr", [ingredients[target.attributes[0].nodeValue].name])
-        // console.log(event.target.placeholder)
         container[target.attributes[0].nodeValue][event.target.placeholder] = event.target.value
-        console.log("this is the contianer:", container[target.attributes[0].nodeValue])
-        console.log(container)
         setIngredients(container)
         break;
       default:
