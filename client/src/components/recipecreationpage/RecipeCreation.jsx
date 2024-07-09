@@ -1,6 +1,8 @@
 
 import React, { useState } from "react"
 
+import axios from "axios"
+
 import "../../styles/Recipe.scss"
 
 
@@ -10,11 +12,8 @@ const RecipeCreationPage = () => {
   const [name, setName] = useState("")
   const [ingredients, setIngredients] = useState([
     { name: "", desc: "", type: "", typeNum: "" },
-    { name: "", desc: "", type: "", typeNum: "" },
-    { name: "", desc: "", type: "", typeNum: "" },
   ])
   const [steps, setSteps] = useState([
-    { name: "", desc: "", },
     { name: "", desc: "", },
   ])
 
@@ -70,7 +69,7 @@ const RecipeCreationPage = () => {
         break
       case "steps":
         const createContainerSteps = [...steps]
-        createContainerSteps.push({ name: "", desc: ""})
+        createContainerSteps.push({ name: "", desc: "" })
         setSteps(createContainerSteps)
         break
       default:
@@ -83,10 +82,35 @@ const RecipeCreationPage = () => {
     setName("")
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    let ingredientsString = ""
+    ingredients.forEach(val => {
+      console.log("this ran")
+      ingredientsString = ingredientsString.concat("Ingredient Name: " + val.name + ". ")
+      ingredientsString = ingredientsString.concat("Ingredient Description: " + val.desc + ". ")
+      ingredientsString = ingredientsString.concat("Ingredient Quantity Type: " + val.type + ". ")
+      ingredientsString = ingredientsString.concat("Ingredient Quantity Amount: " + val.typeNum + ". ")
+    })
+
+
+    axios.post("http://127.0.0.1:8000/recipes/", {
+      dish_name: name,
+      ingredients: ingredientsString,
+    })
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   return (
     <main id="recipeCreationMainWrapper">
       <h1>Create your recipe!</h1>
-      <form id="recipeCreationForm">
+      <form onSubmit={(event) => handleSubmit(event)} id="recipeCreationForm">
         <div id="dishNameWrapper">
           <div>
             <p id="dishNameTitle"><em>Name your Dish!</em></p>
