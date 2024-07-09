@@ -9,10 +9,12 @@ const RecipeCreationPage = () => {
   const [recipe, setRecipe] = useState()
   const [name, setName] = useState("")
   const [ingredients, setIngredients] = useState([
-    { name: "", desc: ""},
-    { name: "", desc: ""},
-    { name: "", desc: ""},
-  ])
+    // tables: [
+      { name: "", desc:"", type:"", typeNum:""},
+      { name: "", desc:"", type:"", typeNum:""},
+      { name: "", desc:"", type:"", typeNum:""},
+    // ]
+])
   const [steps, setSteps] = useState([
     { name: "", desc: "", },
   ])
@@ -31,14 +33,18 @@ const RecipeCreationPage = () => {
         setName(event.target.value);
         break;
       case "items":
+        const container = [...ingredients]
         const target = event.target.parentElement
-        console.log("curr", [ingredients[target.attributes[0].nodeValue].name])
-        console.log(event.target.placeholder)
-        setIngredients(
-          ...ingredients,
-          // [
-            {name: event.target.value}
-          )
+        console.log("this is the target: ",target)
+        console.log("this is targets nodevalue: ", target.attributes[0].nodeValue)
+        // console.log(container[ingredients[target.attributes[0].nodeValue]])
+        // container = event.target.value
+        // console.log("curr", [ingredients[target.attributes[0].nodeValue].name])
+        // console.log(event.target.placeholder)
+        container[target.attributes[0].nodeValue][event.target.placeholder] = event.target.value
+        console.log("this is the contianer:", container[target.attributes[0].nodeValue])
+        console.log(container)
+        setIngredients(container)
         break;
       default:
         console.log("how did this happen?")
@@ -68,9 +74,9 @@ const RecipeCreationPage = () => {
               return (
                 <div name={key} className="itemsWrapper">
                   <input className="left itemGeneral" name="items" type="text" value={val.name} onChange={(event) => handleChange(event)} placeholder="name" />
-                  <input className="right itemGeneral" name="items" type="text" value={val.desc} onChange={(event) => handleChange(event)} placeholder="desc" />
-                  {/* <input className="itemGeneral" name="items" type="text" value={val.type} onChange={(event) => handleChange(event)} placeholder="type" /> */}
-                  {/* <input className="right itemGeneral" name="items" type="number" value={val.typeNum} onChange={(event) => handleChange(event)} placeholder="typeNum" /> */}
+                  <input className="itemGeneral" name="items" type="text" value={val.desc} onChange={(event) => handleChange(event)} placeholder="desc" />
+                  <input className="itemGeneral" name="items" type="text" value={val.type} onChange={(event) => handleChange(event)} placeholder="type" />
+                  <input className="right itemGeneral" name="items" type="number" value={val.typeNum} onChange={(event) => handleChange(event)} placeholder="typeNum" />
                   {key + 1 === 1 ? "" : <input className="dishItemDeleteButton" type="button" value="X" />}
                 </div>
               )
