@@ -192,10 +192,6 @@ $darkcyan: #24d0b1;
   border-left: none;
 }
 
-.itemQuantityWrapper {
-  @include flexRulesRow();
-}
-
 .dishItemDeleteButton {
   width: 2rem;
   height: 2rem;

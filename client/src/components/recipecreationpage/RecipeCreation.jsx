@@ -8,20 +8,37 @@ const RecipeCreationPage = () => {
 
   const [recipe, setRecipe] = useState()
   const [name, setName] = useState("")
+  const [ingredients, setIngredients] = useState([
+    { name: "", desc: ""},
+    { name: "", desc: ""},
+    { name: "", desc: ""},
+  ])
   const [steps, setSteps] = useState([
     { name: "", desc: "", },
   ])
-  const [ingredients, setIngredients] = useState([
-    { name: "", desc: "", type: "", typeNum: "" },
-  ])
+
+  console.log(ingredients)
 
   const handleChange = (event) => {
+    // const target = event.target.parentElement
+    // console.log(target)
+    // console.dir(event.target)
+    // const target = event.target.parentElement
+
+    // console.dir(target.attributes[0].nodeValue)
     switch (event.target.name) {
       case "name":
         setName(event.target.value);
         break;
-      case "steps":
-        setSteps(...steps, )
+      case "items":
+        const target = event.target.parentElement
+        console.log("curr", [ingredients[target.attributes[0].nodeValue].name])
+        console.log(event.target.placeholder)
+        setIngredients(
+          ...ingredients,
+          // [
+            {name: event.target.value}
+          )
         break;
       default:
         console.log("how did this happen?")
@@ -49,13 +66,11 @@ const RecipeCreationPage = () => {
           {
             ingredients.map((val, key) => {
               return (
-                <div className="itemsWrapper">
-                  <input className="left itemGeneral" type="text" value={val.name} placeholder="Item name..." />
-                  <input className="itemGeneral" type="text" value={val.desc} placeholder="Item desc...(optional)" />
-                  <div className="itemQuantityWrapper">
-                    <input className="itemGeneral" type="text" value={val.type} placeholder="Item type, eg. cups, oz" />
-                    <input className="right itemGeneral" type="number" value={val.typeNum} placeholder="Amount..." />
-                  </div>
+                <div name={key} className="itemsWrapper">
+                  <input className="left itemGeneral" name="items" type="text" value={val.name} onChange={(event) => handleChange(event)} placeholder="name" />
+                  <input className="right itemGeneral" name="items" type="text" value={val.desc} onChange={(event) => handleChange(event)} placeholder="desc" />
+                  {/* <input className="itemGeneral" name="items" type="text" value={val.type} onChange={(event) => handleChange(event)} placeholder="type" /> */}
+                  {/* <input className="right itemGeneral" name="items" type="number" value={val.typeNum} onChange={(event) => handleChange(event)} placeholder="typeNum" /> */}
                   {key + 1 === 1 ? "" : <input className="dishItemDeleteButton" type="button" value="X" />}
                 </div>
               )
