@@ -8,7 +8,7 @@ const RecipeCreationPage = () => {
 
   const [recipe, setRecipe] = useState()
   const [steps, setSteps] = useState([
-    { name: "", desc: "",},
+    { name: "", desc: "", },
   ])
   const [ingredients, setIngredients] = useState([
     { name: "", desc: "", type: "", typeNum: "" },
@@ -33,8 +33,6 @@ const RecipeCreationPage = () => {
           </div>
           {
             ingredients.map((val, key) => {
-              console.log("this is the value: ", val)
-              console.log("this is the key: ", key)
               return (
                 <div className="itemsWrapper">
                   <input className="left itemGeneral" type="text" value={val.name} placeholder="Item name..." />
@@ -53,24 +51,24 @@ const RecipeCreationPage = () => {
         <div id="dishStepsWrapper">
           <div id="dishStepsSubWrapper">
             <p id="dishStepsTitle"><em>Give your dish some steps</em></p>
-            <input id="dishStepsCreateButton" type="button" value="Create"/>
+            <input id="dishStepsCreateButton" type="button" value="Create" />
           </div>
           {
             steps.map((val, key) => {
-              return(
+              return (
                 <>
-                <div className="stepsWrapper">
-                  <p className="stepsNum">{key + 1}</p>
-                  <input className="stepName left" type="text" value={val.name} placeholder="Step name..."/>
-                  <textarea className="stepDesc right" type="tex" value={val.desc} placeholder="Step description..."/>
-                  { key+1 === 1 ? "" : <input className="dishStepsDeleteButton" type="button" value="X" />}
-                </div>
+                  <div className="stepsWrapper">
+                    <p className="stepsNum">{key + 1}</p>
+                    <input className="stepName left" type="text" value={val.name} placeholder="Step name..." />
+                    <textarea className="stepDesc right" type="tex" value={val.desc} placeholder="Step description..." />
+                    {key + 1 === 1 ? "" : <input className="dishStepsDeleteButton" type="button" value="X" />}
+                  </div>
                 </>
               )
             })
           }
         </div>
-        <input id="recipeSubmitButton" type="submit" value="Post Recipe!"/>
+        <input id="recipeSubmitButton" type="submit" value="Post Recipe!" />
       </form>
     </main>
   )
