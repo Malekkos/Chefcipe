@@ -15,6 +15,7 @@ const RecipeCreationPage = () => {
   ])
   const [steps, setSteps] = useState([
     { name: "", desc: "", },
+    { name: "", desc: "", },
   ])
 
   const handleChange = (event) => {
@@ -23,11 +24,17 @@ const RecipeCreationPage = () => {
         setName(event.target.value);
         break;
       case "items":
-        const container = [...ingredients]
-        const target = event.target.parentElement
-        container[target.attributes[0].nodeValue][event.target.placeholder] = event.target.value
-        setIngredients(container)
+        const containerItems = [...ingredients]
+        const targetItems = event.target.parentElement
+        containerItems[targetItems.attributes[0].nodeValue][event.target.placeholder] = event.target.value
+        setIngredients(containerItems)
         break;
+      case "steps":
+        const containerSteps = [...steps]
+        const targetSteps = event.target.parentElement
+        containerSteps[targetSteps.attributes[0].nodeValue][event.target.placeholder] = event.target.value
+        setSteps(containerSteps)
+        break
       default:
         console.log("how did this happen?")
         return
@@ -75,10 +82,10 @@ const RecipeCreationPage = () => {
             steps.map((val, key) => {
               return (
                 <>
-                  <div className="stepsWrapper">
+                  <div name={key} className="stepsWrapper">
                     <p className="stepsNum">{key + 1}</p>
-                    <input className="stepName left" type="text" value={val.name} placeholder="Step name..." />
-                    <textarea className="stepDesc right" type="tex" value={val.desc} placeholder="Step description..." />
+                    <input name="steps" onChange={(event) => handleChange(event)} className="stepName left" type="text" value={val.name} placeholder="name" />
+                    <textarea name="steps" onChange={(event) => handleChange(event)} className="stepDesc right" type="tex" value={val.desc} placeholder="desc" />
                     {key + 1 === 1 ? "" : <input className="dishStepsDeleteButton" type="button" value="X" />}
                   </div>
                 </>
