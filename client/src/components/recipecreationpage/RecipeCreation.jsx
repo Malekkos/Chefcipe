@@ -7,12 +7,27 @@ import "../../styles/Recipe.scss"
 const RecipeCreationPage = () => {
 
   const [recipe, setRecipe] = useState()
+  const [name, setName] = useState("")
   const [steps, setSteps] = useState([
     { name: "", desc: "", },
   ])
   const [ingredients, setIngredients] = useState([
     { name: "", desc: "", type: "", typeNum: "" },
   ])
+
+  const handleChange = (event) => {
+    switch (event.target.name) {
+      case "name":
+        setName(event.target.value);
+        break;
+      case "steps":
+        setSteps(...steps, )
+        break;
+      default:
+        console.log("how did this happen?")
+        return
+    }
+  }
 
   return (
     <main id="recipeCreationMainWrapper">
@@ -21,7 +36,7 @@ const RecipeCreationPage = () => {
         <div id="dishNameWrapper">
           <div>
             <p id="dishNameTitle"><em>Name your Dish!</em></p>
-            <input id="dishName" type="text" value="" placeholder="Dish name..." />
+            <input id="dishName" name="name" type="text" value={name} onChange={(event) => handleChange(event)} placeholder="Dish name..." />
           </div>
           <input id="dishNameButton" type="button" value="Clear" />
         </div>
@@ -41,7 +56,7 @@ const RecipeCreationPage = () => {
                     <input className="itemGeneral" type="text" value={val.type} placeholder="Item type, eg. cups, oz" />
                     <input className="right itemGeneral" type="number" value={val.typeNum} placeholder="Amount..." />
                   </div>
-                  { key + 1 === 1 ? "" : <input className="dishItemDeleteButton" type="button" value="X" /> }
+                  {key + 1 === 1 ? "" : <input className="dishItemDeleteButton" type="button" value="X" />}
                 </div>
               )
             })
