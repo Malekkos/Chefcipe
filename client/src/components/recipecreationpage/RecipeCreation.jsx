@@ -39,7 +39,28 @@ const RecipeCreationPage = () => {
         console.log("how did this happen?")
         return
     }
+
   }
+    const handleDelete = (event) => {
+      switch(event.target.name) {
+        case"items":
+        const containerDeleteIngredients = [...ingredients]
+        const parentElementIngredients = event.target.parentElement.attributes[0].nodeValue
+        containerDeleteIngredients.splice(parentElementIngredients, 1)
+        setIngredients(containerDeleteIngredients)
+        break;
+        case "steps":
+          const containerDeleteSteps = [...steps]
+          const parentElementSteps = event.target.parentElement.attributes[0].nodeValue
+          containerDeleteSteps.splice(parentElementSteps, 1)
+          setSteps(containerDeleteSteps)
+          break;
+      default:
+        console.log("how did this happen?")
+        return
+      }
+      
+    }
 
   return (
     <main id="recipeCreationMainWrapper">
@@ -66,7 +87,7 @@ const RecipeCreationPage = () => {
                   <input className="itemGeneral" name="items" type="text" value={val.desc} onChange={(event) => handleChange(event)} placeholder="desc" />
                   <input className="itemGeneral" name="items" type="text" value={val.type} onChange={(event) => handleChange(event)} placeholder="type" />
                   <input className="right itemGeneral" name="items" type="number" value={val.typeNum} onChange={(event) => handleChange(event)} placeholder="typeNum" />
-                  {key + 1 === 1 ? "" : <input className="dishItemDeleteButton" type="button" value="X" />}
+                  {key + 1 === 1 ? "" : <input name="items" onClick={(event) => handleDelete(event)} className="dishItemDeleteButton" type="button" value="X" />}
                 </div>
               )
             })
@@ -86,7 +107,7 @@ const RecipeCreationPage = () => {
                     <p className="stepsNum">{key + 1}</p>
                     <input name="steps" onChange={(event) => handleChange(event)} className="stepName left" type="text" value={val.name} placeholder="name" />
                     <textarea name="steps" onChange={(event) => handleChange(event)} className="stepDesc right" type="tex" value={val.desc} placeholder="desc" />
-                    {key + 1 === 1 ? "" : <input className="dishStepsDeleteButton" type="button" value="X" />}
+                    {key + 1 === 1 ? "" : <input name="steps" onClick={(event) => handleDelete(event)} className="dishStepsDeleteButton" type="button" value="X" />}
                   </div>
                 </>
               )
