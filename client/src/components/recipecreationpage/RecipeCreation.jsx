@@ -59,9 +59,11 @@ const RecipeCreationPage = () => {
         console.log("how did this happen?")
         return
       }
-      
     }
 
+    const clearName = () => {
+      setName("")
+    }
   return (
     <main id="recipeCreationMainWrapper">
       <h1>Create your recipe!</h1>
@@ -71,7 +73,7 @@ const RecipeCreationPage = () => {
             <p id="dishNameTitle"><em>Name your Dish!</em></p>
             <input id="dishName" name="name" type="text" value={name} onChange={(event) => handleChange(event)} placeholder="Dish name..." />
           </div>
-          <input id="dishNameButton" type="button" value="Clear" />
+          <input id="dishNameButton" onClick={() => clearName()}type="button" value="Clear" />
         </div>
         <div className="divider"></div>
         <div id="dishItemsWrapper">
