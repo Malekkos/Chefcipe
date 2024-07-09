@@ -25,8 +25,8 @@ class RecipesView(APIView):
     output = [{
       "dish_name": output.dish_name,
       "ingredients": output.ingredients,
-      "author": output.author,
-      "date_posted": output.date_posted
+      # "author": output.author,
+      # "date_posted": output.date_posted
       } for output in Recipes.objects.all()]
     return Response(output)
   
