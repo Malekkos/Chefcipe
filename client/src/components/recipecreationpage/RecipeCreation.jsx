@@ -61,6 +61,24 @@ const RecipeCreationPage = () => {
     }
   }
 
+  const handleCreate = (event) => {
+    switch (event.target.name) {
+      case "items":
+        const createContainerIngredients = [...ingredients]
+        createContainerIngredients.push({ name: "", desc: "", type: "", typeNum: "" })
+        setIngredients(createContainerIngredients)
+        break
+      case "steps":
+        const createContainerSteps = [...steps]
+        createContainerSteps.push({ name: "", desc: ""})
+        setSteps(createContainerSteps)
+        break
+      default:
+        console.log("how did this happen?")
+        return
+    }
+  }
+
   const clearName = () => {
     setName("")
   }
@@ -80,7 +98,7 @@ const RecipeCreationPage = () => {
         <div id="dishItemsWrapper">
           <div id="dishItemsSubWrapper">
             <p id="dishItemsTitle"><em>Give your dish some items</em></p>
-            <input id="dishItemsCreateButton" type="button" value="Create" />
+            <input id="dishItemsCreateButton" name="items" onClick={(event => handleCreate(event))} type="button" value="Create" />
           </div>
           {
             ingredients.map((val, key) => {
@@ -100,7 +118,7 @@ const RecipeCreationPage = () => {
         <div id="dishStepsWrapper">
           <div id="dishStepsSubWrapper">
             <p id="dishStepsTitle"><em>Give your dish some steps</em></p>
-            <input id="dishStepsCreateButton" type="button" value="Create" />
+            <input id="dishStepsCreateButton" name="steps" onClick={(event) => handleCreate(event)} type="button" value="Create" />
           </div>
           {
             steps.map((val, key) => {
