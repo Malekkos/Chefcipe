@@ -57,22 +57,20 @@ const RecipeCreationPage = () => {
           </div>
           {
             steps.map((val, key) => {
-              console.log("this is the val: ", val)
-              console.log("this is the key: ", key)
-
               return(
                 <>
                 <div className="stepsWrapper">
                   <p className="stepsNum">{key + 1}</p>
                   <input className="stepName left" type="text" value={val.name} placeholder="Step name..."/>
                   <textarea className="stepDesc right" type="tex" value={val.desc} placeholder="Step description..."/>
-                  <input className="dishStepsDeleteButton" type="button" value="X" />
+                  { key+1 === 1 ? "" : <input className="dishStepsDeleteButton" type="button" value="X" />}
                 </div>
                 </>
               )
             })
           }
         </div>
+        <input id="recipeSubmitButton" type="submit" value="Post Recipe!"/>
       </form>
     </main>
   )

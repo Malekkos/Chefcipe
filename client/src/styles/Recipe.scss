@@ -5,6 +5,7 @@ $black: #444444;
 $lightblack: #363636;
 $yellow: #F8E962;
 $cyan: #3CF3D2;
+$darkcyan: #24d0b1;
 
 @mixin flexRulesColumn{
   display: flex;
@@ -119,6 +120,14 @@ $cyan: #3CF3D2;
     color: $red;
     background-color: $white;
     border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  #dishNameButton:hover {
+    background-color: $red;
+    color: $white;
   }
 }
 
@@ -143,8 +152,16 @@ $cyan: #3CF3D2;
       height: 5rem;
       border: none;
       font-size: 1.4rem;
-      color: $cyan;
+      color: $darkcyan;
       margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    
+    #dishItemsCreateButton:hover {
+      background-color: $yellow;
+      color: $white;
     }
   }
 
@@ -162,6 +179,7 @@ $cyan: #3CF3D2;
   border-color: white;
   margin-right: 0.2rem;
   height: 2rem;
+  color: $white;
 }
 
 .right {
@@ -212,18 +230,29 @@ $cyan: #3CF3D2;
       height: 5rem;
       border: none;
       font-size: 1.4rem;
-      color: $cyan;
+      color: $darkcyan;
       margin: 1rem 0;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    
+    #dishStepsCreateButton:hover {
+      background-color: $yellow;
+      color: $white;
     }
   }
 }
 
 .stepsWrapper{
   @include flexRulesRow();
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 
   .stepsNum {
     margin-right: 0.2rem;
+    position:relative;
+    bottom: 0.5rem;
     color: $white;
   }
   .stepName, .stepDesc {
@@ -234,6 +263,7 @@ $cyan: #3CF3D2;
     margin-right: 0.4rem;
     width: 20rem;
     resize: none;
+    color: $white;
   }
   
   .stepName {
@@ -257,6 +287,13 @@ $cyan: #3CF3D2;
   .dishStepsDeleteButton:hover {
     background-color: $lightwhite;
   }
-  
 }
 
+#recipeSubmitButton {
+  margin-top: 3rem;
+  width: 8rem;
+  height: 3rem;
+  background-color: $black;
+  color: $white;
+  cursor: pointer;
+}
