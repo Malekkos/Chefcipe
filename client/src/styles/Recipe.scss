@@ -72,6 +72,26 @@ $darkcyan: #24d0b1;
   @include flexRulesColumn();
   align-items: center;
   width: 20rem;
+  background-color: $black;
+  border-radius: 2rem;
+
+  h2 {
+    color: $white;
+  }
+
+  div {
+    color: $white;
+    
+  }
+
+}
+#itemsWrapper div p br {
+  background-color: $cyan;
+  height: 2rem;
+  width: 2rem;
+  display: block;
+  border-bottom: 1rem solid white;
+
 }
 
 #recipeCreationMainWrapper {
