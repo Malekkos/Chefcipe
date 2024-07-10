@@ -89,18 +89,18 @@ const RecipeCreationPage = () => {
 
     let ingredientsString = ""
     ingredients.forEach(val => {
-      ingredientsString = ingredientsString.concat("Ingredient Name: " + val.name + ". ")
-      ingredientsString = ingredientsString.concat("Ingredient Description: " + val.desc + ". ")
-      ingredientsString = ingredientsString.concat("Ingredient Quantity Type: " + val.type + ". ")
-      ingredientsString = ingredientsString.concat("Ingredient Quantity Amount: " + val.typeNum + ". ")
+      ingredientsString = ingredientsString.concat("Ingredient Name:" + val.name)
+      ingredientsString = ingredientsString.concat("Ingredient Description:" + val.desc)
+      ingredientsString = ingredientsString.concat("Ingredient Quantity Type:" + val.type)
+      ingredientsString = ingredientsString.concat("Ingredient Quantity Amount:" + val.typeNum)
     })
 
     let stepString = ""
     let count = 1
     steps.forEach(val => {
       console.log(val.desc)
-      stepString = stepString.concat(`Step ${count} : ` + val.name + ". ")
-      stepString = stepString.concat("Step Description: " + val.desc + ". ")
+      stepString = stepString.concat(`Step ${count} :` + val.name)
+      stepString = stepString.concat("Step Description:" + val.desc)
       count++
     })
 
