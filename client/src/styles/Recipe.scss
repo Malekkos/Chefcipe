@@ -63,6 +63,17 @@ $darkcyan: #24d0b1;
   }
 }
 
+#recipeItemsWrapper {
+  @include flexRulesColumn();
+  align-items: center;
+}
+
+#itemsWrapper {
+  @include flexRulesColumn();
+  align-items: center;
+  width: 20rem;
+}
+
 #recipeCreationMainWrapper {
   @include flexRulesColumn();
   align-items: center;
