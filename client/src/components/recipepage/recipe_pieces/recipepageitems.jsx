@@ -24,32 +24,25 @@ const RecipePageItems = () => {
       <div id="itemsWrapper">
         {
           prevData.map((val, key) => {
-            // console.log("this is the val: ", val)
-            // console.log("This is the key: ", key)
 
             const ingredients = val.ingredients
-            // console.log(ingredients)
             const indentPoints = []
             for( let i = 0; i < ingredients.length ;i++) {
-              // if(ingredients[i] === "N" && ingredients[i + 4] === ":") {
-                // console.log("found name")
-                // indentPoints.push(i + 4)
-              // }
-
-              // if(ingredients[i] ==="D" && ingredients[i + 11] === ":") {
-              //   console.log("found description")
-              //   indentPoints.push(i + 11)
-              // }
-
-              if(ingredients[i] === "T" && ingredients[i + 4] === ":") {
-                console.log("found Type")
+              if(ingredients[i] === "N" && ingredients[i + 4] === ":") {
                 indentPoints.push(i + 4)
               }
 
-              // if(ingredients[i] === "A" && ingredients[i + 6] === ":") {
-                // console.log("found amount")
-                // indentPoints.push(i + 11)
-              // }
+              if(ingredients[i] ==="D" && ingredients[i + 11] === ":") {
+                indentPoints.push(i + 11)
+              }
+
+              if(ingredients[i] === "T" && ingredients[i + 4] === ":") {
+                indentPoints.push(i + 4)
+              }
+
+              if(ingredients[i] === "A" && ingredients[i + 6] === ":") {
+                indentPoints.push(i + 11)
+              }
 
             }
             console.log(indentPoints)
