@@ -26,31 +26,12 @@ const RecipePageItems = () => {
           prevData.map((val, key) => {
 
             let ingredients = val.ingredients
-            const indentPoints = []
             for( let i = 0; i < ingredients.length ;i++) {
               if(ingredients[i] === ":") {
-                // console.log("running")
-                // console.log("ingredients before: ", ingredients)
                 ingredients = ingredients.split("")
-                // console.log("ingredients: ", ingredients)
                 ingredients.splice(i, 1, `<br />`)
-                console.log("before", ingredients)
                 ingredients = ingredients.join("")
-                console.log("after", ingredients)
               }
-              // ingredients.join("")
-
-              // if(ingredients[i + 11] === ":") {
-              //   indentPoints.push(i + 11)
-              // }
-
-              // if(ingredients[i + 4] === ":") {
-              //   indentPoints.push(i + 4)
-              // }
-
-              // if(ingredients[i + 6] === ":") {
-              //   indentPoints.push(i + 11)
-              // }
             }
             return (
               <div key={key}>
