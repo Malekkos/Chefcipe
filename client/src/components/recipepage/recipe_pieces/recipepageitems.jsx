@@ -20,42 +20,31 @@ const RecipePageItems = () => {
       })
   }, [])
 
-
-  console.log(keys)
   return (
     <>
       <div id="itemsWrapper">
         {
           prevData.map(val => {
 
-
-            console.log(val.dish_name)
-            let newVal = [val]
-
             return (
-              keys.map((keys, key) => {
-                // console.log("this is the keys in in map :", keys)
-                
-                if(keys === "dish_name") {
-                  // console.log("made it to dish_name")
-                  return(
+              keys.map((keys) => {
+
+                if (keys === "dish_name") {
+                  return (
                     <>
                       <h2>{val[keys]}</h2>
                     </>
                   )
                 } else if (keys === "ingredients") {
-                  // console.log("made it to ingredients")
-                  
+
                   let ingredients = val[keys]
-                  console.log(ingredients)
-                  for( let i = 0; i < ingredients.length ;i++) {
-                    if(ingredients[i] === ":") {
+                  for (let i = 0; i < ingredients.length; i++) {
+                    if (ingredients[i] === ":") {
                       ingredients = ingredients.split("")
                       ingredients.splice(i, 1, "<br />")
                       ingredients = ingredients.join("")
                     }
-                    if(ingredients[i] === "I" && ingredients[i + 9] === "t") {
-                      console.log("AHAHA")
+                    if (ingredients[i] === "I" && ingredients[i + 9] === "t") {
                       ingredients = ingredients.split("")
                       ingredients.splice(i, 0, "<br />")
                       ingredients = ingredients.join("")
@@ -67,26 +56,23 @@ const RecipePageItems = () => {
                       i++
                     }
                   }
+
                   let newIngredients = new DOMParser().parseFromString(`<div className="itemsIngredientsWrapper">${ingredients}</div>`, "text/html")
                   let arrayIngredients = (newIngredients.firstChild.lastChild.firstChild.innerHTML)
-
-
-                  console.log(arrayIngredients)
-                  return(
+                  return (
                     <>
-                      {/* {arrayIngredients} */}
-                      <div className="itemsIngredientsWrapper" dangerouslySetInnerHTML={{__html: arrayIngredients}}></div>
+                      <div className="itemsIngredientsWrapper" dangerouslySetInnerHTML={{ __html: arrayIngredients }}></div>
                     </>
                   )
                 } else {
-                  // console.log("made it to steps")
-                  return(
+
+                  return (
                     <>
                       <p>steps</p>
                     </>
                   )
                 }
-              
+
               })
             )
             // console.log(val)
