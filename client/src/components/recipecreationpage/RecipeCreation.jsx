@@ -1,5 +1,6 @@
 
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import axios from "axios"
 
@@ -7,6 +8,8 @@ import "../../styles/Recipe.scss"
 
 
 const RecipeCreationPage = () => {
+
+  const navigate = useNavigate()
 
   const [name, setName] = useState("")
   const [ingredients, setIngredients] = useState([
@@ -107,7 +110,7 @@ const RecipeCreationPage = () => {
       steps: stepString,
     })
       .then(res => {
-        console.log(res)
+        navigate("/recipes")
       })
       .catch(error => {
         console.log(error)
