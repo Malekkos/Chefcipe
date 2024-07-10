@@ -20,6 +20,6 @@ class User(models.Model):
 class Recipes(models.Model):
   dish_name = models.CharField(max_length=50)
   ingredients = models.CharField(max_length=500)
-  steps = models.CharField(max_length=2000, default="None")
+  steps = models.CharField(max_length=2000)
   # author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
   # date_posted = models.DateTimeField(db_default=Now())
