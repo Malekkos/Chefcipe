@@ -104,7 +104,7 @@ const RecipeCreationPage = () => {
       count++
     })
 
-    axios.post("http://127.0.0.1:8000/recipes/", {
+    axios.post("http://52.9.203.72:8000/recipes/", {
       dish_name: name,
       ingredients: ingredientsString,
       steps: stepString,

@@ -11,7 +11,7 @@ const RecipePageItems = () => {
   const [keys, setKeys] = useState("")
 
   useEffect(() => {
-    axios.get("http://54.219.56.171:8000/recipes/")
+    axios.get("http://52.9.203.72:8000/recipes/")
       .then(res => {
         setPrevData(res.data)
         setKeys(Object.keys(res.data[0]))
